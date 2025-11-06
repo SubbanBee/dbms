@@ -1,0 +1,71 @@
+AIM:2.1 Querying and modifying the database using Data Manipulation 
+Language commands -select, insert, update, delete 
+Description: 
+DML COMMANDS are INSERT, UPDATE, DELETE and SELECT. 
+INSERT COMMAND: 
+This command is used to create data into the table which is already defined through DDL 
+commands. The data can be entered in the form of rows and columns. 
+Syntax: INSERT INTO <Table name> 
+(column1, [column2, ............. ,columnN]) 
+values (column1value,column2value, ...... ,columnNvalue); 
+OR 
+INSERT INTO <Table name> 
+Values (column1value,column2value,…..,columnNvalue); 
+UPDATE COMMAND: 
+This command is used to modify or change or replace the existingdata of a table. 
+Syntax: 
+UPDATE <Table_name> 
+Set <column1>=<column1value> 
+[,<column2>=<column2value>,……… 
+,<columnN>=<columnNvalue>] 
+[where<condition>]; 
+DELETE COMMAND: 
+This command is used to remove a single row or multiple rows of a table. 
+Syntax: 
+DELETE FROM<Table_name> 
+[where<condition>]; 
+SELECT COMMAND: 
+This command is used to view a single row or multiple rows or single column or multiple columns 
+of a table. 
+Syntax: 
+Select [distinct] column1,column2 as newname from table1,table2 
+Where condition 
+Group by columnname 
+Having condition 
+Order by columname asc|desc 
+Creating Students Table: 
+create table students 
+( 
+rollno varchar2(30), 
+name varchar2(30) 
+); 
+Table Created 
+Inserting Data into the table 
+insert into students values('24B11CS234','Bala'); 
+1 row(s) inserted. 
+insert into students values('24B11CS381','Kiran'); 
+1 row(s) inserted.
+Displaying Data from the table 
+select * from students; 
+ROLLNO 
+24B11CS234 
+NAME 
+24B11CS381 
+Bala 
+Kiran 
+select name from students; 
+NAME 
+Bala 
+Kiran 
+ROLLNO 
+select * from students9 where rollno='24B11CS234' 
+24B11CS234 
+NAME 
+Bala 
+Deleting a row from the table 
+delete from students where rollno='24B11CS381'; 
+1 row(s) deleted. 
+Updating a row in the table 
+update students set name='Bala Raju' where rollno='24B11CS381'; 
+1 row(s) updated. 
+ADITYA University
