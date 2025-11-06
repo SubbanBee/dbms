@@ -1,0 +1,24 @@
+: 1.2 Implementing a University Database System. 
+Description: 
+a. Schema 
+It is overall design of the database. It tells how many tables are there, what are their attributes, and 
+how they are related. It includes table names, column names(attributes), datatypes, and keys. 
+Syntax of Schema: 
+Table Name (column1 : datatype, column2: datatype, column3: datatype, ……., columnN: datype) 
+b. Attributes per Table 
+• Students Table 
+Attributes: StudentID, StudentName, Major 
+• Courses Table 
+Attributes: CourseID, CourseName, Credits 
+• Enrollments Table 
+Attributes: StudentID, CourseID, EnrollmentDate 
+• Instructors Table 
+Attributes: InstructorID, InstructorName, Phone 
+• Course_Instructors Table 
+Attributes: CourseID, InstructorID 
+c. Schema for University Database: 
+Students (StudentID:string, StudentName:string, Major:string) 
+Courses (CourseID:string, CourseName:string, Credits:integer) 
+Enrollments (StudentID:string, CourseID:string, EnrollmentDate:date) 
+Instructors (InstructorID:integer, InstructorName:string, Phone:integer) 
+Course_Instructors (CourseID:string, InstructorID:integer) 
