@@ -1,0 +1,97 @@
+Description:
+
+DCL commands control access to data in the database.
+
+• GRANT: Allows users to access and manipulate database objects.
+
+• REVOKE: Removes previously granted privileges.
+
+Syntax:
+
+GRANT privilege_name ON object_name TO user_name;
+
+REVOKE privilege_name ON object_name FROM user_name;
+
+Example:
+
+CREATE TABLE student_login (
+
+ userid VARCHAR2(10),
+
+ password VARCHAR2(20)
+
+);
+
+GRANT SELECT, INSERT ON student_login TO user1;
+
+REVOKE INSERT ON student_login FROM user1;
+
+Explanation:
+
+• The GRANT statement gives user1 permission to select and insert records into the table.
+
+• The REVOKE statement removes the insert permission from user1.
+
+AIM: 4.2 (B) Implementation of Transaction Control Language commands —
+
+COMMIT, SAVEPOINT, and ROLLBACK
+
+Description:
+
+TCL commands are used to manage transactions in the database.
+
+• COMMIT: Saves all the changes made in the current transaction.
+
+• ROLLBACK: Undoes the changes of the current transaction.
+
+• SAVEPOINT: Creates a temporary point in a transaction for partial rollback.
+
+Syntax:
+
+COMMIT;
+
+ROLLBACK;
+
+SAVEPOINT savepoint_name;
+
+ROLLBACK TO savepoint_name;
+
+Example:
+
+CREATE TABLE accounts (
+
+ accno NUMBER,
+
+ name VARCHAR2(20),
+
+ balance NUMBER
+
+);
+
+INSERT INTO accounts VALUES (101, 'Ravi', 2000);
+
+SAVEPOINT A;
+
+INSERT INTO accounts VALUES (102, 'Suma', 3000);
+
+SAVEPOINT B;
+
+UPDATE accounts SET balance = balance + 500 WHERE accno = 101;
+
+ROLLBACK TO B;
+
+COMMIT;
+
+ACCNO NAME BALANCE
+
+101 Ravi 2000
+
+102 Suma 3000
+
+Explanation:
+
+1. SAVEPOINT A and SAVEPOINT B mark transaction stages.
+
+2. ROLLBACK TO B cancels the update done after B but retains all changes before it.
+
+3. COMMIT makes the remaining changes permanent.
