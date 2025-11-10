@@ -1,0 +1,57 @@
+Description:
+
+An index improves the speed of data retrieval operations in a database.
+
+There are two main types:
+
+• Primary Index – created automatically when a primary key is defined.
+
+• Secondary Index – created manually on non-primary key columns to improve search performance.
+
+Indexes work like book indexes — instead of scanning all pages (rows), the database can jump directly to 
+
+the desired data.
+
+Syntax:
+
+-- Primary Index (Automatically created using PRIMARY KEY)
+
+CREATE TABLE table_name (
+
+ column1 datatype PRIMARY KEY,
+
+ column2 datatype,
+
+ ...
+
+);
+
+-- Secondary Index (Manually created)
+
+CREATE INDEX index_name
+
+ON table_name (column_name);
+
+Example:
+
+CREATE TABLE Students (
+
+ StudentID VARCHAR2(10) PRIMARY KEY,
+
+ StudentName VARCHAR2(30),
+
+ Major VARCHAR2(20)
+
+);
+
+-- Creating Secondary Index on StudentName
+
+CREATE INDEX idx_studentname
+
+ON Students (StudentName);
+
+Output:
+
+Table created.
+
+Index created.
