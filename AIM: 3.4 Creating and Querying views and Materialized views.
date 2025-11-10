@@ -1,0 +1,184 @@
+Description:
+
+View
+
+A view is a logical table based on the result set of an SQL Statement. A view contains rows and 
+
+columns, just like a table. The fields in a view are fields from one or more base tables in the 
+
+database. We can apply all DDL and DML statements on views.
+
+Syntax:
+
+Create or replace force/noforce view viewname as 
+
+Select column_list from table_list
+
+Where condition with read only|check option
+
+Dropping a view syntax:
+
+Drop view viewname;
+
+Source Table
+
+ROLLNO NAME MARKS
+
+501 jyothi 90
+
+502 sai 95
+
+504 yamuna 70
+
+505 padma 60
+
+503 ravi 80
+
+Creating View
+
+create view myview as select rollno,name from st1; 
+
+view created
+
+Display Views and Tables in your login
+
+select * from tab;
+Inserting a row in view
+
+insert into myview values(506,'prathisha'); 
+
+1 row(s) inserted
+
+Display view
+
+select * from myview;
+
+ROLLNO NAME
+
+501 jyothi
+
+502 sai
+
+506 prathisha
+
+504 yamuna
+
+505 padma
+
+503 ravi
+
+Displaying Table
+
+select * from st1;
+
+ROLLNO NAME MARKS
+
+501 jyothi 90
+
+502 sai 95
+
+506 prathisha -
+
+504 yamuna 70
+
+505 padma 60
+
+503 ravi 80
+
+Deleting a row in a view
+
+delete from myview where rollno=506; 
+
+1 row(s) deleted
+
+Display view
+
+select * from myview;
+
+ROLLNO NAME
+
+501 jyothi
+
+502 sai
+
+504 yamuna
+
+505 padma
+
+503 ravi
+Displaying Table
+
+select * from st1;
+
+ROLLNO NAME MARKS
+
+501 jyothi 90
+
+502 sai 95
+
+504 yamuna 70
+
+505 padma 60
+
+503 ravi 80
+
+Change the Structure of the View
+
+create or replace view myview as select * from st1; 
+
+view created.
+
+Creating View when base table doesn’t exist
+
+create or replace force view abc as select * from dummy_table; 
+
+Warning: View created with compilation errors.
+
+Creating Read only view
+
+create view myview1 as select * from st1 with read only; 
+
+view created
+
+Inserting Data in Read only view
+
+insert into myview1 values(503,'prathisha',80);
+
+ORA-01733: virtual column not allowed here
+
+update myview1 set name='suma' where rollno=505; 
+
+ORA-01733: virtual column not allowed here
+
+Displaying view
+
+select * from myview1;
+
+ROLLNO NAME MARKS
+
+501 jyothi 90
+
+502 sai 95
+
+504 yamuna 70
+
+505 padma 60
+
+503 ravi 80
+
+Creating View with check option
+
+create view myview2 as select * from st1 where marks<101 with check option; 
+
+view created
+Inserting a row into view
+
+insert into myview2 values(504,'siri',101);
+
+ORA-01402: view WITH CHECK OPTION where-clause violation
+
+Dropping view
+
+Drop View myview1; 
+
+View dropped
