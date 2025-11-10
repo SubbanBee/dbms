@@ -1,0 +1,81 @@
+AIM: 1.1 Familiarization with installation of any DBMS. 
+
+Description:
+
+Introduction to Oracle 10g Express Edition and Installation
+
+a. Overview of Oracle 10g Express Edition:
+
+Oracle Database 10g Express Edition (Oracle Database XE) is a free, downloadable version of 
+
+the world's most capable relational database. Oracle Database XE is easy to install and easy to 
+
+manage.
+
+Interfaces
+
+Database Home Page: Oracle XE included a web-based interface accessible through a 
+
+browser, typically at http://localhost:8080/apex.
+
+SQL Command Line: A simple command-line interface called "SQL Command Line" was 
+
+included for direct SQL execution and basic administration tasks.
+
+b. Installation Steps
+
+Click on the first file named OracleXE.exe to begin your downloading
+
+Click the Next button to begin to install the Oracle Database 10g Express Edition.
+Select and click the Accept radio button followed by clicking the Next button to go 
+
+to the next page.
+
+Select folder where setup will install files.
+
+In the next dialog, you need to enter your password. You must remember 
+
+this password since you need to use it to access your database installed in the Oracle 
+
+server from your client computer later. The username is SYSTEM by default. This 
+
+means that you need to use the SYSTEM as your username and the password you 
+
+selected to open and access the database you created and installed in the Oracle 
+
+server later.
+Click the Next button after you entered your desired password, and then click the 
+
+Install button to begin this installatio
+When this installation is complete, a finish dialog is displayed
+
+Click the Finish button to complete this installation.
+
+The Database Login page is opened to allow you to enter your username and 
+
+password to access the Oracle server to create, access and manipulate the 
+
+database you created in this server.
+
+Enter the SYSTEM as your username and the password you selected when 
+
+you installed the server, and then click the Login button to open the home 
+
+page.
+
+There are four icons on the opened home page
+At this point, you have successfully finished the download and installation of the Oracle 
+
+Database 10g Express Edition, which include the Oracle Database 10g Express server
+
+and the client. A Database Started Guide icon has been automatically added to your 
+
+desktop on your computer. You can open this icon to follow the guide to access your 
+
+database if you like. To connect your client to the server and start creating, accessing and 
+
+manipulating your database, you need to open the Database home page by clicking the 
+
+Start|All Program Files|Oracle Database 10g Express Edition|Go To Database Home 
+
+Page. Then you can create and manipulate your database staring from the Object Brows
