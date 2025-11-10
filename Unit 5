@@ -1,0 +1,160 @@
+AIM: 5.1 Create a Primary and Secondary Index on a Column
+
+Description:
+
+An index improves the speed of data retrieval operations in a database.
+
+There are two main types:
+
+• Primary Index – created automatically when a primary key is defined.
+
+• Secondary Index – created manually on non-primary key columns to improve search performance.
+
+Indexes work like book indexes — instead of scanning all pages (rows), the database can jump directly to 
+
+the desired data.
+
+Syntax:
+
+-- Primary Index (Automatically created using PRIMARY KEY)
+
+CREATE TABLE table_name (
+
+ column1 datatype PRIMARY KEY,
+
+ column2 datatype,
+
+ ...
+
+);
+
+-- Secondary Index (Manually created)
+
+CREATE INDEX index_name
+
+ON table_name (column_name);
+
+Example:
+
+CREATE TABLE Students (
+
+ StudentID VARCHAR2(10) PRIMARY KEY,
+
+ StudentName VARCHAR2(30),
+
+ Major VARCHAR2(20)
+
+);
+
+-- Creating Secondary Index on StudentName
+
+CREATE INDEX idx_studentname
+
+ON Students (StudentName);
+
+Output:
+
+Table created.
+
+Index created.
+
+
+
+
+AIM: 5.2 Retrieve Data Using an Index
+
+Description:
+
+When a query uses an indexed column in the WHERE clause, the database engine uses the index to quickly 
+
+locate the matching rows, improving performance.
+
+Example:
+
+SELECT * FROM Students WHERE StudentName = 'Kiran';
+
+Since the StudentName column has a secondary index (idx_studentname), this query will retrieve the record faster 
+
+than a full table scan.
+
+StudentID StudentName Major
+
+S01 Kiran CSE
+
+
+
+
+AIM: 5.3 Insert Data and Update Indexes
+
+Description:
+
+When new records are inserted, the indexes are automatically updated by the database.
+
+This ensures that all future retrievals remain efficient.
+
+Example:
+
+INSERT INTO Students VALUES ('S02', 'Ravi', 'ECE');
+
+INSERT INTO Students VALUES ('S03', 'Bala', 'EEE');
+
+The database automatically updates:
+
+• The Primary Index for StudentID
+
+• The Secondary Index for StudentName
+
+To Verify:
+
+SELECT * FROM Students;
+
+STUDENTID STUDENT
+
+NAME
+
+MAJOR
+
+S01 Kiran CSE
+
+S02 Ravi ECE
+
+S03 Bala EEE
+
+
+AIM: 5.4 Delete Data and Observe Impact on Indexes
+
+Description:
+
+When a row is deleted, the corresponding entries in all indexes are also automatically removed by the 
+
+database.
+
+This maintains data consistency and prevents invalid index references.
+
+Example:
+
+DELETE FROM Students WHERE StudentID = 'S02';
+
+The index entries for 'S02' and 'Ravi' are automatically deleted from the primary and secondary indexes.
+
+To Verify:
+
+SELECT * FROM Students;
+
+STUDENTID STUDENT
+
+NAME
+
+MAJOR
+
+S01 Kiran CSE
+
+S03 Bala ECE
+
+Conclusion:
+
+• Primary indexes are automatically created and maintained by the DBMS.
+
+• Secondary indexes are created manually for faster access on non-key columns.
+
+• Both indexes automatically update when data is inserted, deleted, or modified.
